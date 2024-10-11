@@ -3,34 +3,38 @@
     padding: 0;
 }
 
+:root{
+    --cg: rgb(92, 162, 92);
+    --cb: beige;
+}
+
+/*
+
+
+Bloc Présentation avec bonjour et descriptif + l'image 3D + icones
+
+
+*/
+
 #presentation{
-    margin: 0;
-    padding-left: 150px;
-    padding-right: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(92, 162, 92);
-    box-shadow: 0px 0px 2px 2px rgba(92,162,92);
-    color: beige;
-    gap: 10em;
-    height: 600px;
+
+    padding-left: 150px;
+    padding-right: 150px;
+    min-height: 600px;
+
+    background-color: var(--cg);
+    box-shadow: 0px 0px 2px 2px var(--cg);
+    color: var(--cb);
 }
 
-#presentationText{
-    width: 70%;
-    height: auto;
-}
+/*
 
-#presentationImage{
-    width: 30%;
-    background-color: rgb(245, 245, 220);
-    box-shadow: 0px 0px 20px 110px beige;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    border: none;
-}
+    Le texte
+
+*/
 
 h1{
     font-family: 'Courier New', Courier, monospace;
@@ -44,37 +48,135 @@ p{
     font-weight: bold;
 }
 
-#presentationImage img{
-    width: 350%;
-    height: 350%;
-    position: relative;
-    top: -135px;
-    left: -115px;
+#presentationText{
+    width: 70%;
+    height: auto;
 }
 
+/*
+
+    Image + icone
+
+*/
+
+#presentationImage{
+    display: inherit;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 30%;
+
+    background-image: radial-gradient(var(--cb), rgba(0, 0, 0, 0) 50%);
+}
+#presentationImage img{
+    max-width: 300px;
+    margin-left: 10%;
+}
+
+.logoLinkeding{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+.logoGitHub{
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+#flexEnd{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/*
+
+    Les Formes
+
+*/
+
+#cercles{
+    position: absolute;
+    top: 187px;
+    left: 650px;
+}
+
+#carrePoint{
+    position: absolute;
+    top: 70px;
+    left: -25px;
+}
+
+#escalier{
+    position: absolute;
+    top: 440px;
+    left: 125px;
+
+}
+
+
+/* 
+
+
+    Titre + chaque bloc de projet
+
+
+*/
+
+#titreMesProjets{
+    text-align: center;
+    margin: 1em auto;
+    color: var(--cg);
+    text-decoration: underline;
+}
+
+/*
+
+    La section Projets
+
+*/
+
 #projets{
-    width: 100%;
     display: flex;
     justify-content: space-around;
     flex-flow: row wrap;
-    margin: 150px auto;
+
+    gap: 3em;
+
+    width: 100%;
     height: 100%;
 }
 
+/*
+
+    Le conteneur (le fond vert de chaque bloc)
+
+*/
+
 .conteneur{
-    width: 450px;
-    height: 400px;
-    background-color: rgb(92, 162, 92) ;
-    border-radius: 15px;
-    box-shadow: 0 0 15px 10px rgb(92, 162, 92);
-    margin-bottom: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    flex-basis: 350px;
+    flex-grow: 1;
+    margin: 2em;
+
+    background-color: var(--cg) ;
+    border-radius: 15px;
+    box-shadow: 0 0 15px 10px var(--cg);
+
     cursor: pointer;
     overflow: hidden;
 }
+
+/*
+
+    Taille de l'image du projet + transition in-out
+
+*/
 
 .photoProjet{
     width: 100%;
@@ -87,8 +189,10 @@ p{
     max-width: 100%;
     max-width: 100%;
     object-fit: cover;
-    border-radius: 15px 15px 0 0;
+
     margin: 0;
+    border-radius: 15px 15px 0 0;
+
     transition: transform 0.3s ease-in-out;
 }
 
@@ -97,24 +201,40 @@ p{
     z-index: 1;
 }
 
+/*
+
+    Taille de la div description + le texte
+
+*/
+
 .descriptionProjet{
-    background-color: white;
     width: 100%;
     height: 100%;
+    margin-top: -10px;
+
+    background-color: white;
     box-shadow: 0px -30px 20px 20px white;
     border-radius: 0 0 15px 15px;
-    margin-top: -10px;
+
     z-index: 2;
 }
 
 .descriptionProjet p{
-    max-width: 90%;
-    margin: 0 auto;
-    text-align: justify;
-    margin-top: 25px;
     font-size: 0.9em;
     font-weight: 600;
+
+    max-width: 90%;
+    margin-top: 25px;
+    margin: 0 auto;
+
+    text-align: justify;
 }
+
+/*
+
+    Couleur du texte en fonction de la couleur du projet
+
+*/
 
 #projetChezBenat{
     color: rgb(106, 135, 168);
@@ -130,4 +250,190 @@ color: rgb(77, 12, 94);
 }
 #projetJeuDragon{
     color: rgb(10, 10, 35);
+}
+
+/*
+
+    Le footer
+
+*/
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 15px;
+
+    background-color:var(--cg) ;
+    box-shadow: 0px 0px 2px 2px var(--cg);
+}
+
+footer img{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+
+
+
+
+/* 
+
+    Media Querry version Tablette
+
+*/
+
+@media screen and (max-width : 1200px){
+
+
+    /*
+
+
+    Bloc Présentation
+
+
+    */
+
+    #presentation{
+
+        padding-left: 200px;
+
     }
+
+    /*
+
+    Les Formes
+
+    */
+
+        #cercles{
+            position: absolute;
+            top: 95px;
+            left: 500px;
+        }
+
+        #carrePoint{
+            position: absolute;
+            top: -5px;
+            left: -115px;
+        }
+
+        #escalier{
+            position: absolute;
+            top: 440px;
+            left: 465px;
+
+        }
+
+        /*
+
+            Image + icone
+
+        */
+
+        #presentationImage{
+            width: 100%;
+            margin: -15px;
+            margin-top: 100px;
+        }
+
+        .logoLinkeding, .logoGitHub{
+            display: none;
+        }
+
+        #presentationText{
+            width: 100%;
+        }
+
+
+
+}
+
+
+
+
+/* 
+
+    Media Querry version telephone
+
+*/
+
+@media screen and (max-width : 750px){
+
+    /*
+
+
+        Bloc Présentation
+
+
+    */
+
+    #presentation{
+        padding: 0;
+        padding-top: 75px;
+        padding-left: 20px;
+        flex-wrap: wrap;
+    }
+
+    /*
+
+    Le texte
+
+    */
+
+    h1{
+        font-size: 3em;
+        margin: 10px auto;
+    }
+
+    p{
+        font-size: 1em;
+    }
+
+    #presentationText{
+        width: 90%;
+        height: auto;
+    }
+
+
+    /*
+
+    Image + icone
+
+    */
+
+    #presentationImage img{
+        margin-top: -100px;
+        padding-bottom: 25px;
+    }
+
+    /*
+
+    Les Formes
+
+    */
+
+    #cercles{
+        position: absolute;
+        top: 65px;
+        left: 220px;
+    }
+
+    #carrePoint{
+        position: absolute;
+        top: -10px;
+        left: -115px;
+    }
+
+    #escalier{
+        position: absolute;
+        top: 490px;
+        left: 275px;
+
+    }
+
+
+}
